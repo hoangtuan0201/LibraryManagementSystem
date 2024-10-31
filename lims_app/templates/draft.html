@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Book Catalog</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Library Book Catalog</h1>
+
+    <!-- Search Bar -->
+    <div class="row mb-4">
+      <div class="col-md-8 offset-md-2">
+        <input type="text" class="form-control" placeholder="Search for books...">
+      </div>
+    </div>
+
+    <!-- Book Cards -->
+    <div class="row">
+      <!-- Book Card 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="book-image-url.jpg" class="card-img-top" alt="Book Title">
+          <div class="card-body">
+            <h5 class="card-title">Book Title 1</h5>
+            <p class="card-text">by Author Name</p>
+            <p><strong>Genre:</strong> Fiction</p>
+            <p><strong>Availability:</strong> Available</p>
+            <a href="#" class="btn btn-primary btn-block">Borrow</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book Card 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card">
+          <img src="book-image-url.jpg" class="card-img-top" alt="Book Title">
+          <div class="card-body">
+            <h5 class="card-title">Book Title 2</h5>
+            <p class="card-text">by Author Name</p>
+            <p><strong>Genre:</strong> Non-Fiction</p>
+            <p><strong>Availability:</strong> Checked Out</p>
+            <a href="#" class="btn btn-secondary btn-block" disabled>Checked Out</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Book Cards -->
+      <!-- Repeat the above structure for more books -->
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

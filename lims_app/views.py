@@ -6,7 +6,5 @@ from django.shortcuts import render,redirect
 
 
 def home(request):
-    return HttpResponse('hello world')
+    return render(request, "index.html", context={})
 
-def shopping(request):
-    return H
