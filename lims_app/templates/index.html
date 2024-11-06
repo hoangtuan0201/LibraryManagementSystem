@@ -4,112 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Library Information Management</title>
-    <link href="styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <style>
         body {
-            background-image: url("{% static '/library-shelf.jpg' %}");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size:cover ;
-
-            max-width:80%;
-            margin:auto;
+            margin: auto;
             font-family: 'Arial', sans-serif;
-
         }
-        .container1{
-            display:flex;
-            justify-content: space-between;
-
-        }
-
 
         .nav-link:hover {
-          background-color:#fd7e14;
-          color:white;
-          transition: background-color 0.3s ease;
-      }
-        .active {
-            background-color:#fd7e14;
-            color:white;
+            background-color: #fd7e14;
+            color: white;
             transition: background-color 0.3s ease;
         }
-
-
+        .active {
+            background-color: #fd7e14;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .jumbotron {
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            background-color: #e9ecef;
+            border-radius: 0.3rem;
+        }
     </style>
 </head>
 <body>
-    <div class="bg-primary text-light p-3 rounded">
-        <h2>Library Information Management System</h2>
-        <div class="contact-info">CALL US NOW:<br> +84-0899223595 </div>
-    </div>
 
-    <!--    navbar -->
-    <div class="">
-        <nav class="nav bg-dark mb-4 nav-justified rounded">
-{#            check weather homepage is active#}
-            {% if current_tab == 'home' %}
-                <a class="nav-link active link-light p-3" aria-current="page" href=/home>HOME</a>
-            {% else %}
-                <a class="nav-link link-light p-3" aria-current="page" href="/home">HOME</a>
-            {% endif %}
-{#            check weather readers is active#}
-            {% if current_tab == 'readers' %}
-                <a class="nav-link active link-light p-3" href="/readers">READERS</a>
-            {% else %}
-                <a class="nav-link link-light p-3" href="/readers">READERS</a>
-            {% endif %}
-{#            check weather returns is active#}
-            {% if current_tab == 'returns' %}
-                <a class="nav-link active link-light p-3" href="/returns">RETURNS</a>
-            {% else %}
-                <a class="nav-link link-light p-3" href="/returns">RETURNS</a>
-            {% endif %}
-            {% if current_tab == 'bag' %}
-                <a class="nav-link active link-light p-3" href="/bag">MY BAG</a>
-            {% else %}
-                <a class="nav-link link-light p-3" href="/bag">MY BAG</a>
-            {% endif %}
+<div class="bg-primary text-light p-3m  d-flex align-items-center">
+    <img class="logo rounded-circle me-3" src="{% static '/logo.png' %}" height="45">
+    <h2>Library Information Management System</h2>
+    <div class="contact-info ms-auto">CALL US NOW:<br> +84-0899223595 </div>
+</div>
 
-{#            check weather contact is active#}
+<!-- Navbar -->
+<div class="">
+    <nav class="nav bg-dark nav-justified rounded">
+        {% comment %} Define navigation items as a list {% endcomment %}
+        {% with nav_items="home readers returns bags" %}
+            {% for item in nav_items.split %} {# Split by whitespace directly in Python #}
+                <a class="nav-link {% if current_tab == item %}active{% endif %} link-light p-3" href="/{{ item }}">
+                    {{ item|upper }}
+                </a>
+            {% endfor %}
+        {% endwith %}
+    </nav>
+</div>
 
-            {% if current_tab == 'contact' %}
-                <a class="nav-link active link-light p-3" href="/contact">CONTACT</a>
-            {% else %}
-                <a class="nav-link link-light p-3" href="/contact">CONTACT</a>
-            {% endif %}
-      </nav>
-    </div>
-{#    keep the header as a common html #}
-    {% block main_content %}
-    {% endblock %}
+<!-- Main Content Block -->
 
-    <!-- Search Bar -->
-    <div class="row mb-4">
-        <div class="col-md-8 offset-md-2">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for books...">
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button">Search</button>
-            </div>
-          </div>
-        </div>
-    </div>
+{% block main_content %}
+
+{% endblock %}
 
 
-    <form method="POST" action="/save">
-        {%  csrf_token %}
-{#        this is security token  prevent cross site request forgery #}
-        <label for="student_name">Student name:</label>
-        <input class="form-control w-25" type="text" name="student_name">
+<!-- Load Bootstrap JS and jQuery at the end of the body for better performance -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-        <label for="student_age">Student age:</label>
-        <input class="form-control w-25 mb-2" type="number" name="student_age">
-        <button class="btn btn-sm btn-primary">Save</button>
-    </form>
 </body>
 </html>

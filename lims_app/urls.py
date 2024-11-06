@@ -22,6 +22,6 @@ urlpatterns = [
     path('home', views.home, name="home"),
     path('readers', views.readers, name="readers"),
     path('returns', views.returns, name="returns"),
-    path('contact', views.contact, name="contact"),
+    path('bags', views.bags, name="bags"),
     path('save', views.save_student, name="save")
 ]

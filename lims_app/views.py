@@ -12,8 +12,8 @@ def readers(request):
 
 def returns(request):
     return render(request, "returns.html", context={"current_tab":"returns"})
-def contact(request):
-    return render(request, "contact.html", context={"current_tab":"contact"})
+def bags(request):
+    return render(request, "bags.html", context={"current_tab":"bags"})
 
 def save_student(request):
 #Get student name and age entered by user

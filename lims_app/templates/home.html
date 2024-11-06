@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 {% extends "index.html" %}
 {% load static %}
-{#this will get loaded with index.html when this html is rendered#}
+{# This will get loaded with index.html when this HTML is rendered #}
 {% block main_content %}
+<div class="jumbotron">
+    <div class="container">
+        <img class="rounded-circle float-start me-3" src="{% static '/logo.png' %}" height="150">
+        <h1 class="display-4">Welcome to our Library Management System</h1>
+        <a class="btn btn-primary btn-lg" href="" role="button">Browse our collections</a>
+    </div>
+</div>
 
+<!-- About Section -->
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <img src="{% static '/library-shelf.jpg' %}" class="img-fluid rounded" alt="Library Image">
+        </div>
+        <div class="col-md-8">
+            <h2>About Our System</h2>
+            <p>Our Library Information Management System (LMS) is designed to provide an accessible and organized approach to managing library resources. Whether you're a student, researcher, or faculty member, our system allows you to easily search for books, access resources, and manage your library account.</p>
+            <p>Stay updated with the latest arrivals, reserve books, and access e-resources at your convenience. We are here to support your learning journey.</p>
+        </div>
+    </div>
+</div>
 
-
+<!-- Footer Section -->
+<footer class="bg-dark text-light mt-5">
+    <div class="container py-4">
+        <div class="row">
+            <!-- Contact Info -->
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>20 Cong Hoa<br>TPHCM, Vietnam<br>Phone: +84-0899223595<br>Email: info@library.com</p>
+            </div>
+            <!-- Social Media -->
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i> Facebook</a><br>
+                <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i> Twitter</a><br>
+                <a href="#" class="text-light"><i class="bi bi-instagram"></i> Instagram</a>
+            </div>
+        </div>
+        <hr class="bg-light">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2024 Library Management System.</p>
+        </div>
+    </div>
+</footer>
 {% endblock %}
